@@ -3,75 +3,282 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Портфолио IT-специалиста | Cloud & DevOps</title>
+  <title>Cloud & DevOps Engineer — Интерактивное портфолио</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <div class="top-bar">
-        <span class="badge">CI/CD Automated via GitHub Actions</span>
-        <button id="theme-toggle" class="btn-outline" type="button">Сменить тему</button>
+  <!-- Интерактивный сетевой фон на Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Навигационная панель -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span>CLOUD<strong>.DEVOPS</strong></span>
+        <span class="version-tag">v2.0 LIVE</span>
       </div>
-      <h1>Алеков — Cloud &amp; DevOps инженер</h1>
-      <p class="subtitle">
-        Проектирую облачную инфраструктуру, настраиваю автоматизацию CI/CD и разрабатываю веб-приложения.
-      </p>
+      <nav class="nav-links">
+        <a href="#about">Архитектура</a>
+        <a href="#skills">Стек</a>
+        <a href="#projects">Проекты</a>
+        <a href="#pipeline">CI/CD Симулятор</a>
+        <a href="#terminal-section">Терминал</a>
+      </nav>
+      <button id="theme-toggle" class="btn-glass" type="button">Светлая тема</button>
     </div>
   </header>
 
   <main class="container">
-    <!-- Раздел 1: О себе -->
-    <section id="about" class="card">
-      <h2>1. О себе</h2>
-      <p>
-        Специализируюсь на автоматизации процессов разработки и развёртывания веб-сервисов.
-        Использую современные инструменты контроля версий, контейнеризации и облачного хостинга
-        для обеспечения бесперебойной работы приложений.
+    <!-- Главный экран (Hero) -->
+    <section class="hero-section">
+      <div class="status-pill">
+        <span class="pulse-indicator"></span>
+        <span>CI/CD Pipeline: Active • Deployed via GitHub Actions</span>
+      </div>
+      <h1 class="hero-title">
+        Инженерия облачных систем и <span class="gradient-text">автоматизация CI/CD</span>
+      </h1>
+      <p class="hero-subtitle">
+        <span id="typewriter"></span><span class="cursor">|</span>
       </p>
+
+      <div class="hero-actions">
+        <a href="#pipeline" class="btn-primary">Запустить тест конвейера</a>
+        <a href="#terminal-section" class="btn-glass">Открыть веб-терминал</a>
+      </div>
+
+      <!-- Метрики в реальном времени -->
+      <div class="metrics-grid">
+        <div class="metric-card tilt-card">
+          <span class="metric-value">99.98%</span>
+          <span class="metric-label">Cloud SLA Uptime</span>
+        </div>
+        <div class="metric-card tilt-card">
+          <span class="metric-value" id="deploy-counter">142</span>
+          <span class="metric-label">Успешных деплоев</span>
+        </div>
+        <div class="metric-card tilt-card">
+          <span class="metric-value">18 сек</span>
+          <span class="metric-label">Среднее время сборки</span>
+        </div>
+        <div class="metric-card tilt-card">
+          <span class="metric-value">0</span>
+          <span class="metric-label">Критических уязвимостей</span>
+        </div>
+      </div>
     </section>
 
-    <!-- Раздел 2: Навыки -->
-    <section id="skills" class="card">
-      <h2>2. Технические навыки</h2>
-      <ul class="skills-list">
-        <li><strong>CI/CD и Git:</strong> GitHub Actions, Git, YAML, автоматическое тестирование</li>
-        <li><strong>Веб-разработка:</strong> HTML5, CSS3, JavaScript (ES6+), REST API</li>
-        <li><strong>Облака и ОС:</strong> Linux, Docker, GitHub Pages, облачные виртуальные машины</li>
-      </ul>
-    </section>
-
-    <!-- Раздел 3: Проекты -->
-    <section id="projects" class="card">
-      <h2>3. Реализованные проекты</h2>
-      <div class="projects-grid">
-        <article class="project-item">
-          <h3>Cloud-CICD-Project</h3>
-          <p>Веб-сайт с автоматической проверкой структуры и публикацией на GitHub Pages при каждом коммите в ветку main.</p>
+    <!-- Раздел 1: О себе и инженерный подход (Bento Grid) -->
+    <section id="about" class="section-block">
+      <div class="section-header">
+        <span class="section-tag">РАЗДЕЛ 01</span>
+        <h2>О себе и архитектуре решений</h2>
+      </div>
+      <div class="bento-grid">
+        <article class="glass-card tilt-card bento-wide">
+          <h3>Инфраструктура как код (IaC) и полная автоматизация</h3>
+          <p>
+            Разрабатываю отказоустойчивые веб-сервисы и облачные конвейеры, в которых каждый коммит
+            проходит автоматическую валидацию, статический анализ и бесшовную доставку в продакшн
+            без ручного вмешательства.
+          </p>
+          <div class="tag-row">
+            <span class="chip">GitHub Actions</span>
+            <span class="chip">Terraform</span>
+            <span class="chip">Linux Kernel</span>
+            <span class="chip">Zero-Downtime</span>
+          </div>
         </article>
-        <article class="project-item">
-          <h3>Docker Microservices Monitor</h3>
-          <p>Система мониторинга состояния контейнеров и логов веб-сервисов в облачной среде.</p>
+        <article class="glass-card tilt-card">
+          <h3>Безопасность (DevSecOps)</h3>
+          <p>
+            Изоляция секретов, минимальные права токенов <code>GITHUB_TOKEN</code> и проверка артефактов до публикации.
+          </p>
         </article>
-        <article class="project-item">
-          <h3>AutoBackup Script</h3>
-          <p>Скрипт автоматического резервного копирования баз данных и конфигурационных файлов.</p>
+        <article class="glass-card tilt-card">
+          <h3>Высокая производительность</h3>
+          <p>
+            Оптимизация времени ответа сервера, легковесные контейнеры и глобальная доставка статики через CDN.
+          </p>
         </article>
       </div>
     </section>
 
-    <!-- Интерактивный блок проверки статуса -->
-    <section class="card interactive-box">
-      <h2>Проверка интерактивности</h2>
-      <p>Нажмите на кнопку ниже, чтобы проверить работу JavaScript и зафиксировать время проверки:</p>
-      <button id="status-btn" class="btn-primary" type="button">Проверить статус деплоя</button>
-      <p id="status-output" class="status-text"></p>
+    <!-- Раздел 2: Технические навыки с фильтрацией -->
+    <section id="skills" class="section-block">
+      <div class="section-header">
+        <span class="section-tag">РАЗДЕЛ 02</span>
+        <h2>Технический стек и компетенции</h2>
+      </div>
+
+      <div class="filter-tabs" id="skill-filters">
+        <button class="filter-btn active" data-category="all" type="button">Все технологии</button>
+        <button class="filter-btn" data-category="devops" type="button">Cloud &amp; CI/CD</button>
+        <button class="filter-btn" data-category="code" type="button">Разработка</button>
+        <button class="filter-btn" data-category="db" type="button">Базы данных и ОС</button>
+      </div>
+
+      <div class="skills-grid" id="skills-container">
+        <div class="skill-card glass-card" data-category="devops">
+          <div class="skill-top"><span>GitHub Actions &amp; YAML Pipelines</span><strong>95%</strong></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 95%"></div></div>
+        </div>
+        <div class="skill-card glass-card" data-category="devops">
+          <div class="skill-top"><span>Terraform / Cloud Infrastructure</span><strong>88%</strong></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 88%"></div></div>
+        </div>
+        <div class="skill-card glass-card" data-category="code">
+          <div class="skill-top"><span>JavaScript (ES6+) / HTML5 / CSS3</span><strong>92%</strong></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 92%"></div></div>
+        </div>
+        <div class="skill-card glass-card" data-category="code">
+          <div class="skill-top"><span>C# / C++ / Kotlin Architecture</span><strong>86%</strong></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 86%"></div></div>
+        </div>
+        <div class="skill-card glass-card" data-category="db">
+          <div class="skill-top"><span>MySQL 8.0 / Оптимизация индексов</span><strong>90%</strong></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+        </div>
+        <div class="skill-card glass-card" data-category="db">
+          <div class="skill-top"><span>Linux Administration &amp; PowerShell</span><strong>93%</strong></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 93%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Раздел 3: Реализованные проекты -->
+    <section id="projects" class="section-block">
+      <div class="section-header">
+        <span class="section-tag">РАЗДЕЛ 03</span>
+        <h2>Инженерные проекты</h2>
+      </div>
+      <div class="projects-grid">
+        <article class="glass-card project-card tilt-card">
+          <div class="project-badge">CI/CD • GitHub Pages</div>
+          <h3>Cloud-CICD-Project</h3>
+          <p>
+            Автоматизированный конвейер проверки синтаксиса, сборки артефакта и публикации облачного веб-приложения при каждом пуше в ветку <code>main</code>.
+          </p>
+          <div class="project-meta">
+            <span>Статус: 🟢 Production</span>
+            <span>Ветка: main</span>
+          </div>
+        </article>
+
+        <article class="glass-card project-card tilt-card">
+          <div class="project-badge">PowerShell • SHA256</div>
+          <h3>Automated Disaster Recovery</h3>
+          <p>
+            Система резервного копирования с ZIP-архивацией, криптографической проверкой целостности хэшей SHA256 и планировщиком задач.
+          </p>
+          <div class="project-meta">
+            <span>Статус: 🟢 Verified</span>
+            <span>Coverage: 100%</span>
+          </div>
+        </article>
+
+        <article class="glass-card project-card tilt-card">
+          <div class="project-badge">WebGL • Three.js</div>
+          <h3>3D Tactical Engine</h3>
+          <p>
+            Высокопроизводительное однофайловое 3D-приложение с физикой столкновений, процедурным синтезом звука Web Audio API и ИИ-агентами.
+          </p>
+          <div class="project-meta">
+            <span>FPS: 60+</span>
+            <span>Zero Dependencies</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Интерактивный блок 1: Визуальный симулятор CI/CD Pipeline -->
+    <section id="pipeline" class="section-block">
+      <div class="section-header">
+        <span class="section-tag">ИНТЕРАКТИВНЫЙ МОДУЛЬ</span>
+        <h2>Симулятор работы CI/CD Pipeline</h2>
+      </div>
+      <div class="glass-card pipeline-box">
+        <p class="pipeline-desc">
+          Протестируйте прохождение кода по всем этапам конвейера GitHub Actions в реальном времени:
+        </p>
+
+        <div class="pipeline-stages">
+          <div class="stage-node" id="stage-source">
+            <div class="stage-icon">1</div>
+            <div class="stage-title">Checkout Code</div>
+            <div class="stage-status">Ожидание</div>
+          </div>
+          <div class="stage-connector" id="conn-1"></div>
+          <div class="stage-node" id="stage-lint">
+            <div class="stage-icon">2</div>
+            <div class="stage-title">Validate &amp; Lint</div>
+            <div class="stage-status">Ожидание</div>
+          </div>
+          <div class="stage-connector" id="conn-2"></div>
+          <div class="stage-node" id="stage-build">
+            <div class="stage-icon">3</div>
+            <div class="stage-title">Upload Artifact</div>
+            <div class="stage-status">Ожидание</div>
+          </div>
+          <div class="stage-connector" id="conn-3"></div>
+          <div class="stage-node" id="stage-deploy">
+            <div class="stage-icon">4</div>
+            <div class="stage-title">Deploy Pages</div>
+            <div class="stage-status">Ожидание</div>
+          </div>
+        </div>
+
+        <div class="pipeline-controls">
+          <button id="run-pipeline-btn" class="btn-primary" type="button">▶ Запустить CI/CD Pipeline</button>
+          <button id="fail-pipeline-btn" class="btn-danger" type="button">⚠ Симулировать ошибку в коде</button>
+        </div>
+
+        <div id="pipeline-log" class="pipeline-log">
+          [SYSTEM] Готов к запуску Workflow (.github/workflows/deploy.yml)...
+        </div>
+      </div>
+    </section>
+
+    <!-- Интерактивный блок 2: Встроенный DevOps Терминал -->
+    <section id="terminal-section" class="section-block">
+      <div class="section-header">
+        <span class="section-tag">КОМАНДНАЯ СТРОКА</span>
+        <h2>Интерактивный облачный терминал</h2>
+      </div>
+      <div class="terminal-window">
+        <div class="terminal-bar">
+          <div class="term-dots">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <span class="term-title">runner@github-actions: ~/Cloud-CICD-Project</span>
+        </div>
+        <div class="terminal-quick-cmds">
+          <span>Быстрые команды:</span>
+          <button class="cmd-chip" data-cmd="help" type="button">help</button>
+          <button class="cmd-chip" data-cmd="status" type="button">status</button>
+          <button class="cmd-chip" data-cmd="whoami" type="button">whoami</button>
+          <button class="cmd-chip" data-cmd="deploy" type="button">deploy</button>
+          <button class="cmd-chip" data-cmd="clear" type="button">clear</button>
+        </div>
+        <div id="terminal-output" class="terminal-output">
+          <div>Добро пожаловать в интерактивный терминал Cloud-CICD-Project!</div>
+          <div>Введите <span class="term-highlight">help</span> или нажмите на кнопку выше для списка команд.</div>
+        </div>
+        <form id="terminal-form" class="terminal-input-row">
+          <span class="prompt-sign">runner@cloud:~$</span>
+          <input id="terminal-input" type="text" placeholder="Введите команду (help, status, whoami, deploy, clear)..." autocomplete="off">
+        </form>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 Портфолио IT-специалиста. Развёрнуто автоматически через GitHub Actions.</p>
+    <div class="container footer-inner">
+      <span>&copy; 2026 Cloud-CICD-Project • Практическая работа № 7</span>
+      <span>Автоматическая публикация: <strong>GitHub Actions + GitHub Pages</strong></span>
     </div>
   </footer>
 
