@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио IT-специалиста | Cloud & DevOps</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="top-bar">
+        <span class="badge">CI/CD Automated via GitHub Actions</span>
+        <button id="theme-toggle" class="btn-outline" type="button">Сменить тему</button>
+      </div>
+      <h1>Алексей Смирнов — Cloud &amp; DevOps инженер</h1>
+      <p class="subtitle">
+        Проектирую облачную инфраструктуру, настраиваю автоматизацию CI/CD и разрабатываю веб-приложения.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Раздел 1: О себе -->
+    <section id="about" class="card">
+      <h2>1. О себе</h2>
+      <p>
+        Специализируюсь на автоматизации процессов разработки и развёртывания веб-сервисов.
+        Использую современные инструменты контроля версий, контейнеризации и облачного хостинга
+        для обеспечения бесперебойной работы приложений.
+      </p>
+    </section>
+
+    <!-- Раздел 2: Навыки -->
+    <section id="skills" class="card">
+      <h2>2. Технические навыки</h2>
+      <ul class="skills-list">
+        <li><strong>CI/CD и Git:</strong> GitHub Actions, Git, YAML, автоматическое тестирование</li>
+        <li><strong>Веб-разработка:</strong> HTML5, CSS3, JavaScript (ES6+), REST API</li>
+        <li><strong>Облака и ОС:</strong> Linux, Docker, GitHub Pages, облачные виртуальные машины</li>
+      </ul>
+    </section>
+
+    <!-- Раздел 3: Проекты -->
+    <section id="projects" class="card">
+      <h2>3. Реализованные проекты</h2>
+      <div class="projects-grid">
+        <article class="project-item">
+          <h3>Cloud-CICD-Project</h3>
+          <p>Веб-сайт с автоматической проверкой структуры и публикацией на GitHub Pages при каждом коммите в ветку main.</p>
+        </article>
+        <article class="project-item">
+          <h3>Docker Microservices Monitor</h3>
+          <p>Система мониторинга состояния контейнеров и логов веб-сервисов в облачной среде.</p>
+        </article>
+        <article class="project-item">
+          <h3>AutoBackup Script</h3>
+          <p>Скрипт автоматического резервного копирования баз данных и конфигурационных файлов.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Интерактивный блок проверки статуса -->
+    <section class="card interactive-box">
+      <h2>Проверка интерактивности</h2>
+      <p>Нажмите на кнопку ниже, чтобы проверить работу JavaScript и зафиксировать время проверки:</p>
+      <button id="status-btn" class="btn-primary" type="button">Проверить статус деплоя</button>
+      <p id="status-output" class="status-text"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Портфолио IT-специалиста. Развёрнуто автоматически через GitHub Actions.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
