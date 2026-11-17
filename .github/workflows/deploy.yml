@@ -1,0 +1,61 @@
+name: Deploy Static Website to GitHub Pages
+
+# Запуск при отправке изменений в ветку main (и вручную при необходимости)
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Необходимые разрешения для публикации на GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Предотвращение одновременных конфликтующих деплоев
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Этап 1: Проверка проекта (тестирование структуры и базового синтаксиса)
+  validate:
+    name: Проверка файлов проекта
+    runs-on: ubuntu-latest
+    steps:
+      - name: Получение исходного кода (Checkout)
+        uses: actions/checkout@v4
+
+      - name: Проверка наличия обязательных файлов и разметки
+        run: |
+          echo "Проверяем наличие index.html, style.css и script.js..."
+          test -f index.html || (echo "Ошибка: файл index.html не найден!" && exit 1)
+          test -f style.css || (echo "Ошибка: файл style.css не найден!" && exit 1)
+          test -f script.js || (echo "Ошибка: файл script.js не найден!" && exit 1)
+          grep -q "<title>" index.html || (echo "Ошибка: в index.html отсутствует тег <title>!" && exit 1)
+          echo "Все проверки успешно пройдены!"
+
+  # Этап 2: Сборка артефакта и публикация на GitHub Pages
+  deploy:
+    name: Публикация на GitHub Pages
+    needs: validate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Получение исходного кода (Checkout)
+        uses: actions/checkout@v4
+
+      - name: Настройка GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Загрузка файлов сайта как артефакта
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Развёртывание на GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
